@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>请假原因统计</title>
+  <div th:replace="common/common.html :: common_resource"></div>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+</head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>请假原因统计</h5>
+        </div>
+        <div class="ibox-content">
+          <div id="leaveReasonChart" style="width: 100%; height: 400px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  // 初始化图表
+  var myChart = echarts.init(document.getElementById('leaveReasonChart'));
+
+  // 获取请假原因统计数据
+  fetch('/zjh/leave/statsReason')
+          .then(response => response.json())
+          .then(data => {
+            // 处理数据
+            var chartData = Object.keys(data).map(reason => ({
+              name: reason,
+              value: data[reason]
+            }));
+
+            // 配置图表
+            var option = {
+              title: {
+                text: '请假原因统计',
+                left: 'center'
+              },
+              tooltip: {
+                trigger: 'item',
+                formatter: '{a} <br/>{b}: {c} ({d}%)'
+              },
+              legend: {
+                orient: 'vertical',
+                left: 'left',
+                data: chartData.map(item => item.name)
+              },
+              series: [
+                {
+                  name: '请假原因',
+                  type: 'pie',
+                  radius: '50%',
+                  data: chartData,
+                  emphasis: {
+                    itemStyle: {
+                      shadowBlur: 10,
+                      shadowOffsetX: 0,
+                      shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                  }
+                }
+              ]
+            };
+
+            // 应用配置
+            myChart.setOption(option);
+          })
+          .catch(error => {
+            console.error('Error fetching data:', error);
+          });
+</script>
+</body>
+</html>

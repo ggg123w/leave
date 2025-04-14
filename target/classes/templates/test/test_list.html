@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title>显示首页面</title>
+
+    <div th:replace="common/common.html :: common_resource"></div>
+    <style>
+        /* 添加自定义样式 */
+        .responsive-image {
+            width: 100%; /* 图片宽度占满整个容器 */
+            height: 95%; /* 高度自动调整，保持图片比例 */
+            display: block; /* 防止图片有默认的边距 */
+        }
+    </style>
+</head>
+<body>
+<!-- 添加图片显示 -->
+<img th:src="@{/img/leave.jpg}" alt="请假图片" class="responsive-image" />
+</body>
+
+</html>

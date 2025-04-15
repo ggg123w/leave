@@ -18,7 +18,6 @@
         select * from sys_student ${ew.customSqlSegment}
     </select>
 
-
     <insert id="addStudent" parameterType="Student">
         insert into sys_student
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -44,6 +43,9 @@
             <if test="contactTel != null and contactTel != ''">
                 contact_tel,
             </if>
+            <if test="instId != null and instId != ''">
+                inst_id,
+            </if>
         </trim>
         <trim prefix=" values(" suffix=")" suffixOverrides=",">
             #{stuId},
@@ -67,6 +69,9 @@
             </if>
             <if test="contactTel != null and contactTel != ''">
                 #{contactTel},
+            </if>
+            <if test="instId != null and instId != ''">
+                #{instId},
             </if>
         </trim>
     </insert>
@@ -94,6 +99,9 @@
             </if>
             <if test="contactTel != null and contactTel != ''">
                 contact_tel=#{contactTel},
+            </if>
+            <if test="instId != null and instId != ''">
+                inst_id=#{instId},
             </if>
         </set>
         where stu_id=#{stuId}

@@ -21,6 +21,8 @@ public interface ILeaveService {
     // 查询全部用户信息
     List<Leave> findLeaveAll();
 
+    List<Leave> findLeavesByInstId(String instId);
+
     //自定义sql 分页
     IPage<Leave> selectLeavePage(Page<Leave> page, @Param(Constants.WRAPPER) Wrapper<Leave> wrapper);
 

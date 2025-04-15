@@ -24,7 +24,7 @@ public interface StudentMapper {
     List<Student> findStudentByClassId(Student student);
 
     // 查询全部用户信息
-    List<Student> findStudentAll();
+    List<Student> findAllStudents();
 
     //自定义sql 分页
     IPage<Student> selectStudentPage(Page<Student> page, @Param(Constants.WRAPPER) Wrapper<Student> wrapper);

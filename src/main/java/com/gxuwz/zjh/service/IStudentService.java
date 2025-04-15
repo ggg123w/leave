@@ -17,10 +17,11 @@ public interface IStudentService {
     // 根据 id 查询对应用户信息
     Student findStudentById(Student student);
 
+
     List<Student> findStudentByClassId(Student student);
 
     // 查询全部用户信息
-    List<Student> findStudentAll();
+    List<Student> findAllStudents();
 
     //自定义sql 分页
     IPage<Student> selectStudentPage(Page<Student> page, @Param(Constants.WRAPPER) Wrapper<Student> wrapper);

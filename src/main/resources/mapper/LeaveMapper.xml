@@ -18,7 +18,6 @@
         select * from sys_leave ${ew.customSqlSegment}
     </select>
 
-
     <insert id="addLeave" parameterType="Leave">
         insert into sys_leave
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -47,6 +46,9 @@
             <if test="opinion != null and opinion != ''">
                 opinion,
             </if>
+            <if test="instId != null and instId != ''">
+                inst_id,
+            </if>
         </trim>
         <trim prefix=" values(" suffix=")" suffixOverrides=",">
             #{leaveId},
@@ -73,6 +75,9 @@
             </if>
             <if test="opinion != null and opinion != ''">
                 #{opinion},
+            </if>
+            <if test="instId != null and instId != ''">
+                #{instId},
             </if>
         </trim>
     </insert>
@@ -103,6 +108,9 @@
             </if>
             <if test="opinion != null and opinion != ''">
                 opinion=#{opinion},
+            </if>
+            <if test="instId != null and instId != ''">
+                inst_id=#{instId},
             </if>
         </set>
         where leave_id=#{leaveId}

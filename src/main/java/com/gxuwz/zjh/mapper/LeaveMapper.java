@@ -21,6 +21,9 @@ public interface LeaveMapper {
 
     List<Leave> findLeaveByStuNo(Leave leave);
 
+    // 根据辅导员工号查询该辅导员负责审批的请假信息
+    List<Leave> findLeavesByInstId(@Param("instId") String instId);
+
     // 查询全部用户信息
     List<Leave> findLeaveAll();
 

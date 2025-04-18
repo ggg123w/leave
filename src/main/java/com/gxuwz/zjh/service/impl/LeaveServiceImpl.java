@@ -32,6 +32,11 @@ public class LeaveServiceImpl implements ILeaveService {
     }
 
     @Override
+    public List<Leave> findLeavesByInstId(String instId) {
+        return leaveMapper.findLeavesByInstId(instId);
+    }
+
+    @Override
     public List<Leave> findLeaveAll() {
         return leaveMapper.findLeaveAll();
     }

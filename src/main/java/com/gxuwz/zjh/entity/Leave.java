@@ -1,16 +1,15 @@
 package com.gxuwz.zjh.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.apache.ibatis.type.Alias;
-
 
 @Data
 @Alias("Leave") //请假信息
@@ -43,8 +42,10 @@ public class Leave {
     @ApiModelProperty(value = "审核意见")
     private String opinion;
 
+    @ApiModelProperty(value = "负责审批的辅导员工号")
+    private String instId;
+
     private LocalDateTime createTime;
 
     private LocalDateTime updateTime;
-
 }

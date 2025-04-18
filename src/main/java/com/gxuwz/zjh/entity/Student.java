@@ -11,7 +11,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.apache.ibatis.type.Alias;
 
-
 @Data
 @Alias("Student") //学生信息
 public class Student {
@@ -40,10 +39,10 @@ public class Student {
     @ApiModelProperty(value = "联系人电话")
     private String contactTel;
 
-
+    @ApiModelProperty(value = "辅导员工号")
+    private String instId;
 
     private LocalDateTime createTime;
 
     private LocalDateTime updateTime;
-
 }

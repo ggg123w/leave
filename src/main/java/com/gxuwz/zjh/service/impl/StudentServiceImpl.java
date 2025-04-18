@@ -30,8 +30,8 @@ public class StudentServiceImpl implements IStudentService {
     }
 
     @Override
-    public List<Student> findStudentAll() {
-        return studentMapper.findStudentAll();
+    public List<Student> findAllStudents() {
+        return studentMapper.findAllStudents();
     }
 
     @Override

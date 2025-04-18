@@ -87,52 +87,52 @@
 </style>
 <body class="gray-bg">
 
-    <div class="middle-box text-center loginscreen  animated fadeInDown">
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+    <div>
         <div>
-            <div>
 
-                <h1 class="logo-name">
-                    <img style="border-radius:100em;margin-bottom:50px;width:200px;height:200px;text-align:center;"
-                         th:src="@{/img/profile_small.jpg}"
+            <h1 class="logo-name">
+                <img style="border-radius:100em;margin-bottom:50px;width:200px;height:200px;text-align:center;"
+                     th:src="@{/img/profile_small.jpg}"
                 ></h1>
 
-            </div>
-            <h3 th:text="#{login.welcome}">请假系统</h3>
+        </div>
+        <h3 th:text="#{login.welcome}">请假系统</h3>
 
-            <form class="m-t" role="form" th:action="@{/login.action}" method="post" onsubmit="return validate()">
-                <div class="form-group">
-                    <input type="text" name="userId" value="123" class="form-control" th:placeholder="#{login.username}" required=""
-                           onkeyup="value=value.replace(/[^0-9]/g,'')" onpaste="value=value.replace(/[^0-9]/g,'')" oncontextmenu = "value=value.replace(/[^0-9]/g,'')">
-                </div>
-                <div class="form-group">
-                    <input type="password" name="password" value="123" class="form-control fa fa-eye-slash"
-                           th:placeholder="#{login.password}" required="">
-                </div>
-                <div class="input-group m-t m-b">
-                    <input type="text" class="form-control" id="input"
-                           placeholder="填写右侧的验证码" value="" maxlength="4"
-                           data-validate="required:请填写验证码" />
-                    <span class="input-group-addon no-padding">
+        <form class="m-t" role="form" th:action="@{/login.action}" method="post" onsubmit="return validate()">
+            <div class="form-group">
+                <input type="text" name="userId" value="123" class="form-control" th:placeholder="#{login.username}" required=""
+                       onkeyup="value=value.replace(/[^0-9]/g,'')" onpaste="value=value.replace(/[^0-9]/g,'')" oncontextmenu = "value=value.replace(/[^0-9]/g,'')">
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" value="123" class="form-control fa fa-eye-slash"
+                       th:placeholder="#{login.password}" required="">
+            </div>
+            <div class="input-group m-t m-b">
+                <input type="text" class="form-control" id="input"
+                       placeholder="填写右侧的验证码" value="" maxlength="4"
+                       data-validate="required:请填写验证码" />
+                <span class="input-group-addon no-padding">
                         <input class="passcode col-sm-4"
                                style="height:34px;cursor:pointer;width:80px"
                                type="button" id="code" onclick="createCode()"
                                value="点击刷新"/>
                     </span>
-                </div>
+            </div>
 
-                <button type="submit" class="btn btn-primary block full-width m-b" th:text="#{login.button}">登 录</button>
+            <button type="submit" class="btn btn-primary block full-width m-b" th:text="#{login.button}">登 录</button>
 
-            </form>
-<!--            <a class="center" th:href="@{/toLoginPage(l='zh_CN')}">中文</a> | <a th:href="@{/toLoginPage(l='en_US')}">English</a>-->
-        </div>
+        </form>
+        <a th:href="@{/registerPage}">[[#{login.register}]]</a> | <a th:href="@{/forgetPasswordPage}">[[#{login.forget}]]</a>
     </div>
+</div>
 
-    <!-- 全局js -->
-    <script th:src="@{/js/jquery.min.js}"></script>
-    <script th:src="@{/js/bootstrap.min.js}"></script>
+<!-- 全局js -->
+<script th:src="@{/js/jquery.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
 
-    <!-- Message: alert整合包 -->
-    <script th:src="@{/js/bootstrapMessage.js}"></script>
+<!-- Message: alert整合包 -->
+<script th:src="@{/js/bootstrapMessage.js}"></script>
 
 </body>
 
